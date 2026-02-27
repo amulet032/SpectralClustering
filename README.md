@@ -63,5 +63,39 @@ Clustering is then performed using K-means in the embedded space.
 # 3. Experimental Results
 
 ## 3.1 Parameter Sensitivity
-
+### Original Image
+<img width="1000" height="1000" alt="300091" src="https://github.com/user-attachments/assets/57dcf180-9151-44c7-81ec-82af1729041e" />
 ### Case 1: σ_pixel = 10, σ_geom = 10
+<img width="1000" height="1000" alt="300091-10-10" src="https://github.com/user-attachments/assets/7cc599a0-f7bf-463b-ad7b-ad7570ffb4b1" />
+### Case 2: σ_pixel = 8, σ_geom = 10
+<img width="1000" height="1000" alt="300091-8-10" src="https://github.com/user-attachments/assets/4fe430ff-68eb-4ad8-a963-dc2606c779b3" />
+
+Observations
+
+Lower $\sigma_{pixel}$ increases sensitivity to intensity differences
+Boundary sharpness improves
+Noise level increases in homogeneous regions
+
+## 3.2 Comparison with K-means
+<img width="1200" height="500" alt="moonexample1" src="https://github.com/user-attachments/assets/6bd2bf63-04c6-443a-ba73-c9f9a8168983" />
+K-means fails to separate non-convex clusters.
+Spectral clustering successfully identifies manifold structures via graph embedding.
+
+# 4. Computational Considerations
+
+- Eigen decomposition is computationally expensive ($O(n^3)$)
+- Memory cost increases with graph size
+- Sensitive to $\sigma$ selection
+- Requires predefined cluster number
+
+# 5. Future Work
+
+- Nyström approximation for large-scale images
+- Adaptive sigma estimation
+- Integration with CNN feature extraction
+- Application to medical image segmentation
+
+# 6. Conclusion
+
+Spectral clustering provides a powerful graph-based approach for image segmentation, particularly in scenarios where cluster structures are non-convex.
+However, scalability and parameter sensitivity remain practical challenges.
